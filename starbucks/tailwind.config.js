@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Helvetica", "Arial", "sans-serif"],
+      },
       screens: {
         screen1: "961px",
         screen2: { min: "641px", max: "1120px" },
