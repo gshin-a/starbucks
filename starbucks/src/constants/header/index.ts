@@ -30,7 +30,7 @@ export const gnbsubList = [
     id: 1,
     name: "COFFEE",
     link: "/coffee",
-    w: "w-[5.5625rem]",
+    w: "5.5625",
     eng: "coffee",
   },
   {
@@ -44,7 +44,7 @@ export const gnbsubList = [
     id: 3,
     name: "STORE",
     link: "/store",
-    w: `4.9375`,
+    w: "4.9375",
     eng: "store",
   },
   {

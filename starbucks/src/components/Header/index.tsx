@@ -16,17 +16,18 @@ import { utilnavList, gnbsubList, gnbsubitemList } from "@/constants/header";
 function UtilNav({ showSearch }: UtilNavProps) {
   return (
     <nav
-      className={`block absolute bg-[url('/assets/img/home/sdown_util_sep.png')] screen1:w-[29rem] screen1:h-5 screen1:top-[0.9375rem] screen1:right-[5.8125rem] ${
-        showSearch ? "screen1:right-[14.5rem]" : ""
+      className={`block absolute bg-[url('/assets/img/home/sdown_util_sep.png')] transition-all screen1:w-[29rem] screen1:h-5 screen1:top-[0.9375rem] ${
+        showSearch ? "screen1:right-[14.5rem]" : "screen1:right-[5.8125rem]"
       }`}
     >
       <ul className="flex">
         {utilnavList.map(({ id, name, link, w }) => (
           <li
             key={id}
-            className={`text-center screen1:w-[${w}rem] screen1:h-5 ${
+            className={`text-center screen1:h-5 ${
               id !== 1 ? "screen1:ml-[0.0625rem]" : ""
             }`}
+            style={{ width: `${w}rem` }}
           >
             <a
               href={link}
@@ -44,7 +45,7 @@ function UtilNav({ showSearch }: UtilNavProps) {
 function SearchBtn({ showSearch, setShowSearch }: SearchBtnProps) {
   return (
     <div
-      className={`absolute bg-white border-[0.0625rem] border-solid border-[#ccc] rounded-[0.3125rem] screen1:w-8 screen1:h-8 screen1:top-[0.5625rem] screen1:right-[3.375rem] ${
+      className={`absolute bg-white border-[0.0625rem] border-solid border-[#ccc] rounded-[0.3125rem] overflow-hidden transition-all screen1:w-8 screen1:h-8 screen1:top-[0.5625rem] screen1:right-[3.375rem] ${
         showSearch ? "screen1:bg-white screen1:w-[11.25rem]" : ""
       }`}
     >
@@ -107,16 +108,15 @@ function GnbSub({ gnbsubList }: GnbSubProps) {
       <div className="flex justify-end my-0 mx-auto screen1:h-[4.125rem] screen1:w-[68.75rem] screen2:h-[4.125rem] screen2:w-full">
         <ul className="flex">
           {gnbsubList.map(({ id, name, link, w, eng }) => (
-            // <li key={id} className={w}>
-            <li key={id} className={`w-[${w}rem]`}>
+            <li key={id} style={{ width: `${w}rem` }} className="group">
               <a
                 href={link}
-                className="text-[#333] block text-[0.8125rem] text-center w-full font-avenir screen1:h-[3.5rem] leading-5 pt-[0.625rem]"
+                className="text-[#333] block text-[0.8125rem] text-center w-full font-avenir screen1:h-[3.5rem] leading-5 pt-[0.625rem] group-hover:bg-[#2C2A29] group-hover:text-[#669900]"
               >
                 {name}
               </a>
 
-              <div className="block w-full bg-[#2C2A29] absolute screen1:left-0 screen1:top-[4.125rem]">
+              <div className="max-h-0 overflow-hidden group-hover:max-h-[100vh] w-full bg-[#2C2A29] absolute transition-all duration-500 screen1:left-0 screen1:top-[4.125rem]">
                 <div className="inline-block w-full screen1:py-5 ">
                   <div className="flex flex-wrap relative left-1/2 screen1:w-[68.75rem] screen1:ml-[-34.375rem] screen2:left-5 screen2:ml-0 screen2:relative screen2:w-full">
                     {gnbsubitemList[eng as keyof typeof gnbsubitemList].map(
