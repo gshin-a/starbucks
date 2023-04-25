@@ -16,7 +16,7 @@ import { utilnavList, gnbsubList, gnbsubitemList } from "@/constants/header";
 function UtilNav({ showSearch }: UtilNavProps) {
   return (
     <nav
-      className={`block absolute bg-[url('/assets/img/home/sdown_util_sep.png')] transition-all screen1:w-[29rem] screen1:h-5 screen1:top-[0.9375rem] ${
+      className={`block absolute bg-[url('/assets/img/header/sdown_util_sep.png')] transition-all screen1:w-[29rem] screen1:h-5 screen1:top-[0.9375rem] ${
         showSearch ? "screen1:right-[14.5rem]" : "screen1:right-[5.8125rem]"
       }`}
     >
@@ -54,7 +54,7 @@ function SearchBtn({ showSearch, setShowSearch }: SearchBtnProps) {
         className="block absolute right-0 top-0 screen1:h-[2.125rem] screen1:w-[2.125rem]"
       >
         <Image
-          src="/assets/img/home/icon_magnifier_black.png"
+          src="/assets/img/header/icon_magnifier_black.png"
           alt="icon_magnifier_black"
           width="20"
           height="21"
@@ -148,13 +148,13 @@ function Header() {
   const [showSearch, setShowSearch] = useState(false);
 
   return (
-    <header>
+    <header className="relative h-[7.5rem]">
       <div className="fixed top-0 left-0 w-full bg-[#f6f5ef] border-b-[0.0625rem] border-b-solid border-b-[#e5e5e5] border-t-[0.125rem] border-t-solid border-t-black screen1:h-[7.5rem] screen1:z-[999]">
         <div className="relative my-0 mx-auto screen1:w-[68.75rem] screen1:h-[7.5rem] screen2:w-full screen2:h-[7.5rem]">
           <h1 className="absolute left-0 screen1:w-[4.6875rem] screen1:h-[4.6875rem] screen1:top-[1.375rem] screen1:z-[12] screen2:w-[4.6875rem] screen2:h-[4.6875rem] screen2:top-[1.375rem] screen2:left-5">
             <Link
               href="/"
-              className="block w-full h-full overflow-hidden indent-[-100rem] bg-[url('/assets/img/home/logo.png')]"
+              className="block w-full h-full overflow-hidden indent-[-100rem] bg-[url('/assets/img/header/logo.png')]"
             >
               스타벅스 코리아
             </Link>
