@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Helvetica", "Arial", "sans-serif"],
+        avenir: ["Avenir", "Arial", "georgia"],
       },
       screens: {
         screen1: "961px",

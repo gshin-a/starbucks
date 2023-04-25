@@ -7,3 +7,17 @@
   margin: 0;
   box-sizing: content-box;
 }
+
+body {
+  font-family: "nbg", "맑은 고딕", HelveticaNeue, DroidSans, Sans-serif,
+    Helvetica;
+  line-height: 1;
+}
+
+a {
+  text-decoration: none;
+  vertical-align: baseline;
+  color: #666;
+  background-color: transparent;
+  cursor: pointer;
+}

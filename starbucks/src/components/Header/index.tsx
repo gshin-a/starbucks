@@ -5,8 +5,143 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-function UtilNav() {
-  return <div></div>;
+import {
+  UtilNavProps,
+  SearchBtnProps,
+  GnbSubItemProps,
+  GnbSubProps,
+} from "@/interfaces/header";
+import { utilnavList, gnbsubList, gnbsubitemList } from "@/constants/header";
+
+function UtilNav({ showSearch }: UtilNavProps) {
+  return (
+    <nav
+      className={`block absolute bg-[url('/assets/img/home/sdown_util_sep.png')] screen1:w-[29rem] screen1:h-5 screen1:top-[0.9375rem] screen1:right-[5.8125rem] ${
+        showSearch ? "screen1:right-[14.5rem]" : ""
+      }`}
+    >
+      <ul className="flex">
+        {utilnavList.map(({ id, name, link, w }) => (
+          <li
+            key={id}
+            className={`text-center screen1:w-[${w}rem] screen1:h-5 ${
+              id !== 1 ? "screen1:ml-[0.0625rem]" : ""
+            }`}
+          >
+            <a
+              href={link}
+              className="block text-[0.8125rem] text-[#555] font-avenir screen1:leading-5"
+            >
+              {name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
+function SearchBtn({ showSearch, setShowSearch }: SearchBtnProps) {
+  return (
+    <div
+      className={`absolute bg-white border-[0.0625rem] border-solid border-[#ccc] rounded-[0.3125rem] screen1:w-8 screen1:h-8 screen1:top-[0.5625rem] screen1:right-[3.375rem] ${
+        showSearch ? "screen1:bg-white screen1:w-[11.25rem]" : ""
+      }`}
+    >
+      <button
+        onClick={() => setShowSearch(true)}
+        className="block absolute right-0 top-0 screen1:h-[2.125rem] screen1:w-[2.125rem]"
+      >
+        <Image
+          src="/assets/img/home/icon_magnifier_black.png"
+          alt="icon_magnifier_black"
+          width="20"
+          height="21"
+          className="absolute align-top max-w-full z-[1] screen1:right-[0.4375rem] screen1:top-[0.375rem]"
+        />
+      </button>
+      {showSearch && (
+        <input
+          type="text"
+          placeholder="통합검색"
+          className="block absolute top-[0.3125rem] w-[7.6875rem] bg-none border-none text-[#777] text-[0.75rem] h-[1.375rem] left-0 py-0 px-[0.625rem] screen1:bg-none screen1:border-none screen1:text-[#777] screen1:block screen1:text-[0.75rem] screen1:h-[1.375rem] screen1:left-0 screen1:py-0 screen1:px-[0.625rem] screen1:absolute screen1:top-[0.3125rem] screen1:w-[7.6875rem]"
+        />
+      )}
+    </div>
+  );
+}
+
+function GnbSubItem({ gnbsubitemList, isLast }: GnbSubItemProps) {
+  return (
+    <ul
+      className={`${
+        isLast ? "basis-full pt-[1.875rem]" : ""
+      } screen1:w-[13.75rem] screen2:w-[13.75rem]`}
+    >
+      <li className="w-full screen1:py-[0.1875rem] screen1:px-0 screen1:pb-3">
+        <a
+          href={gnbsubitemList[0].link}
+          className="screen1:text-white screen1:text-[0.875rem] font-normal"
+        >
+          {gnbsubitemList[0].name}
+        </a>
+      </li>
+
+      {gnbsubitemList.map(
+        ({ id, name, link }) =>
+          id !== 1 && (
+            <li key={id} className="w-full screen1:py-[0.1875rem] screen1:px-0">
+              <a href={link} className="text-[#999] text-[0.75rem]">
+                {name}
+              </a>
+            </li>
+          )
+      )}
+    </ul>
+  );
+}
+
+function GnbSub({ gnbsubList }: GnbSubProps) {
+  return (
+    <nav className="absolute left-0 w-full z-[11] screen1:h-[4.125rem] screen1:top-[3.375rem]">
+      <div className="flex justify-end my-0 mx-auto screen1:h-[4.125rem] screen1:w-[68.75rem] screen2:h-[4.125rem] screen2:w-full">
+        <ul className="flex">
+          {gnbsubList.map(({ id, name, link, w, eng }) => (
+            // <li key={id} className={w}>
+            <li key={id} className={`w-[${w}rem]`}>
+              <a
+                href={link}
+                className="text-[#333] block text-[0.8125rem] text-center w-full font-avenir screen1:h-[3.5rem] leading-5 pt-[0.625rem]"
+              >
+                {name}
+              </a>
+
+              <div className="block w-full bg-[#2C2A29] absolute screen1:left-0 screen1:top-[4.125rem]">
+                <div className="inline-block w-full screen1:py-5 ">
+                  <div className="flex flex-wrap relative left-1/2 screen1:w-[68.75rem] screen1:ml-[-34.375rem] screen2:left-5 screen2:ml-0 screen2:relative screen2:w-full">
+                    {gnbsubitemList[eng as keyof typeof gnbsubitemList].map(
+                      (e, idx) => (
+                        <GnbSubItem
+                          key={idx}
+                          gnbsubitemList={e}
+                          isLast={
+                            idx ===
+                              gnbsubitemList[eng as keyof typeof gnbsubitemList]
+                                .length -
+                                1 && idx >= 4
+                          }
+                        />
+                      )
+                    )}
+                  </div>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  );
 }
 
 function Header() {
@@ -24,134 +159,10 @@ function Header() {
               스타벅스 코리아
             </Link>
           </h1>
-          <nav
-            className={`block absolute bg-[url('/assets/img/home/sdown_util_sep.png')] screen1:w-[29rem] screen1:h-5 screen1:top-[0.9375rem] screen1:right-[5.8125rem] ${
-              showSearch ? "screen1:right-[14.5rem]" : ""
-            }`}
-          >
-            <ul className="flex">
-              <li className="text-center screen1:w-[4.75rem] screen1:h-5 ">
-                <a
-                  href="/login"
-                  className="block text-[0.8125rem] text-[#555] screen1:leading-5"
-                >
-                  Sign In
-                </a>
-              </li>
-              <li className="text-center screen1:w-[6.6875rem] screen1:h-5 screen1:ml-[0.0625rem] ">
-                <a
-                  href="/login"
-                  className="block text-[0.8125rem] text-[#555] screen1:leading-5"
-                >
-                  My Starbucks
-                </a>
-              </li>
-              <li className="text-center screen1:w-[11.3125rem] screen1:h-5 screen1:ml-[0.0625rem] ">
-                <a
-                  href="/login"
-                  className="block text-[0.8125rem] text-[#555] screen1:leading-5"
-                >
-                  Customer Service & Ideas
-                </a>
-              </li>
-              <li className="text-center screen1:w-[6.0625rem] screen1:h-5 screen1:ml-[0.0625rem] ">
-                <a
-                  href="/login"
-                  className="block text-[0.8125rem] text-[#555] screen1:leading-5"
-                >
-                  Find a Store
-                </a>
-              </li>
-            </ul>
-          </nav>{" "}
-          <div
-            className={`absolute bg-white border-[0.0625rem] border-solid border-[#ccc] rounded-[0.3125rem] screen1:w-8 screen1:h-8 screen1:top-[0.5625rem] screen1:right-[3.375rem] ${
-              showSearch ? "screen1:bg-white screen1:w-[11.25rem]" : ""
-            }`}
-          >
-            <button
-              onClick={() => setShowSearch(true)}
-              className="block absolute right-0 top-0 screen1:h-[2.125rem] screen1:w-[2.125rem]"
-            >
-              <Image
-                src="/assets/img/home/icon_magnifier_black.png"
-                alt="icon_magnifier_black"
-                width="20"
-                height="21"
-                className="absolute align-top max-w-full z-[1] screen1:right-[0.4375rem] screen1:top-[0.375rem]"
-              />
-            </button>
-            {showSearch && (
-              <input
-                type="text"
-                placeholder="통합검색"
-                className="block absolute top-[0.3125rem] w-[7.6875rem] bg-none border-none text-[#777] text-[0.75rem] h-[1.375rem] left-0 py-0 px-[0.625rem] screen1:bg-none screen1:border-none screen1:text-[#777] screen1:block screen1:text-[0.75rem] screen1:h-[1.375rem] screen1:left-0 screen1:py-0 screen1:px-[0.625rem] screen1:absolute screen1:top-[0.3125rem] screen1:w-[7.6875rem]"
-              />
-            )}
-          </div>
+          <UtilNav showSearch={showSearch} />
+          <SearchBtn showSearch={showSearch} setShowSearch={setShowSearch} />
         </div>
-        <nav className="absolute left-0 w-full z-[11] screen1:h-[4.125rem] screen1:top-[3.375rem]">
-          <div className="flex justify-end my-0 mx-auto screen1:h-[4.125rem] screen1:w-[68.75rem] screen2:h-[4.125rem] screen2:w-full">
-            <ul className="flex">
-              <li className="w-[5.5625rem]">
-                <a
-                  href="/coffee"
-                  className="text-[#333] block text-[0.8125rem] text-center w-full screen1:h-[3.5rem] leading-5 pt-[0.625rem]"
-                >
-                  COFFEE
-                </a>
-              </li>
-              <li className="w-[4.5625rem]">
-                <a
-                  href="/menu"
-                  className="text-[#333] block text-[0.8125rem] text-center w-full screen1:h-[3.5rem] leading-5 pt-[0.625rem]"
-                >
-                  MENU
-                </a>
-              </li>
-              <li className="w-[4.9375rem]">
-                <a
-                  href="/store"
-                  className="text-[#333] block text-[0.8125rem] text-center w-full screen1:h-[3.5rem] leading-5 pt-[0.625rem]"
-                >
-                  STORE
-                </a>
-              </li>
-              <li className="w-[9.5625rem]">
-                <a
-                  href="/responsibility"
-                  className="text-[#333] block text-[0.8125rem] text-center w-full screen1:h-[3.5rem] leading-5 pt-[0.625rem]"
-                >
-                  RESPONSIBILITY
-                </a>
-              </li>
-              <li className="w-[12.5rem]">
-                <a
-                  href="/reward"
-                  className="text-[#333] block text-[0.8125rem] text-center w-full screen1:h-[3.5rem] leading-5 pt-[0.625rem]"
-                >
-                  STARBUCKS REWARDS
-                </a>
-              </li>
-              <li className="w-[10.625rem]">
-                <a
-                  href="/sales"
-                  className="text-[#333] block text-[0.8125rem] text-center w-full screen1:h-[3.5rem] leading-5 pt-[0.625rem]"
-                >
-                  CORPORATE SALES
-                </a>
-              </li>
-              <li className="w-[8.1875rem]">
-                <a
-                  href="/new"
-                  className="text-[#333] block text-[0.8125rem] text-center w-full screen1:h-[3.5rem] leading-5 pt-[0.625rem]"
-                >
-                  WHAT'S NEW
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <GnbSub gnbsubList={gnbsubList} />
       </div>
     </header>
   );
