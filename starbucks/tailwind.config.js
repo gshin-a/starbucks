@@ -30,6 +30,14 @@ module.exports = {
             opacity: 1,
           },
         },
+        down: {
+          from: {
+            height: "1.5rem",
+          },
+          to: {
+            height: 0,
+          },
+        },
       },
       animation: {
         show1: "show 500ms ease forwards",
@@ -37,6 +45,7 @@ module.exports = {
         show3: "show 500ms ease 1s forwards",
         show4: "show 500ms ease 1500ms forwards",
         show5: "show 500ms ease 2s forwards",
+        down: "down 1000ms ease forwards",
       },
     },
   },
