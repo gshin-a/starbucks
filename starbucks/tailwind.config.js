@@ -23,6 +23,9 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      backgroundSize: {
+        "100auto": "100% auto",
+      },
       keyframes: {
         show: {
           from: { opacity: 0 },
