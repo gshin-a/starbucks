@@ -211,7 +211,11 @@ function Controller({
   );
 }
 
-function MainPromBnr() {
+interface MainPromBnrProps {
+  animateCloseBnr: boolean;
+}
+
+function MainPromBnr({ animateCloseBnr }: MainPromBnrProps) {
   const [curItem, setCurItem] = useState(0);
   const [prevSliding, setPrevSliding] = useState(false);
   const [prevSliding2, setPrevSliding2] = useState(false);
@@ -280,7 +284,11 @@ function MainPromBnr() {
   }, [nextSlide, mouseOver, stopSlide]);
 
   return (
-    <div className="w-full z-10 relative bg-[#f6f5ef] border-t-[0.0625rem] border-solid border-[#f6f5ef] overflow-hidden screen1:h-[41.125rem] ">
+    <div
+      className={`w-full z-10 relative bg-[#f6f5ef] border-t-[0.0625rem] border-solid border-[#f6f5ef] overflow-hidden screen1:h-[41.125rem] screen1:animate-showMainSlide ${
+        animateCloseBnr ? "screen1:animate-closeMainSlide" : ""
+      }`}
+    >
       <div className="relative text-center left-1/2 screen1:w-[68.75rem] screen1:h-[34.5625rem] screen1:mt-[2.4375rem] screen1:ml-[-34.375rem]">
         <div className="relative mt-0 mx-auto mb-[3.75rem] max-w-full">
           <div className="w-full overflow-hidden relative h-[33.8125rem] screen1:overflow-visible">

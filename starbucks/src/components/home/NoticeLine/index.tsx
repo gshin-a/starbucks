@@ -77,14 +77,17 @@ function LeftNoticeLine() {
 interface NoticeLineProps {
   openBnr: boolean;
   setOpenBnr: React.Dispatch<SetStateAction<boolean>>;
+  closeBnr: () => void;
 }
 
-function RightNoticeLine({ openBnr, setOpenBnr }: NoticeLineProps) {
+function RightNoticeLine({ openBnr, setOpenBnr, closeBnr }: NoticeLineProps) {
   return (
     <div className="relative screen1:w-[34.375rem] screen1:h-[3.875rem] screen1:z-10 screen6:w-[45%]">
       <button
         className="absolute screen1:w-[14.625rem] screen1:h-9 screen1:top-[0.8125rem] screen1:left-[37%] screen6:left-[10%]"
-        onClick={() => setOpenBnr(!openBnr)}
+        onClick={() => {
+          openBnr ? closeBnr() : setOpenBnr(!openBnr);
+        }}
       >
         <p className="absolute overflow-hidden bg-[url('/assets/img/home/prom_ttl_b.png')] screen1:w-[8.0625rem] screen1:h-[1.0625rem] screen1:top-[0.5625rem] screen1:left-0 bg-100auto"></p>
         <span className="absolute overflow-hidden screen1:w-[2.1875rem] screen1:h-[2.1875rem] screen1:right-0 screen1:top-0">
@@ -105,7 +108,11 @@ function RightNoticeLine({ openBnr, setOpenBnr }: NoticeLineProps) {
   );
 }
 
-export default function NoticeLine({ openBnr, setOpenBnr }: NoticeLineProps) {
+export default function NoticeLine({
+  openBnr,
+  setOpenBnr,
+  closeBnr,
+}: NoticeLineProps) {
   return (
     <div className="relative block w-full screen1:h-[3.875rem]">
       <div className="absolute top-0 left-0 bg-[#111] screen1:h-full screen1:w-1/2"></div>
@@ -113,7 +120,11 @@ export default function NoticeLine({ openBnr, setOpenBnr }: NoticeLineProps) {
       <div className="absolute top-0 screen1:h-full screen1:w-[80rem] screen1:ml-[-40rem] screen1:bg-[url('/assets/img/home/line_notice_bg.jpg')] screen1:left-1/2 screen6:ml-[-30rem] screen6:w-[60rem] screen6:bg-none">
         <div className="flex w-full h-full">
           <LeftNoticeLine />
-          <RightNoticeLine openBnr={openBnr} setOpenBnr={setOpenBnr} />
+          <RightNoticeLine
+            openBnr={openBnr}
+            setOpenBnr={setOpenBnr}
+            closeBnr={closeBnr}
+          />
         </div>
       </div>
     </div>

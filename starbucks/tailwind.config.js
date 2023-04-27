@@ -73,6 +73,22 @@ module.exports = {
             left: "-250.59375rem",
           },
         },
+        showMainSlide: {
+          from: {
+            height: 0,
+          },
+          to: {
+            height: "41.125rem",
+          },
+        },
+        closeMainSlide: {
+          from: {
+            height: "41.125rem",
+          },
+          to: {
+            height: 0,
+          },
+        },
       },
       animation: {
         show1: "show 500ms ease forwards",
@@ -85,6 +101,8 @@ module.exports = {
         prevSlide2: "prevSlide2 300ms ease forwards",
         nextSlide: "nextSlide 300ms ease forwards",
         nextSlide2: "nextSlide2 300ms ease forwards",
+        showMainSlide: "showMainSlide 500ms ease forwards",
+        closeMainSlide: "closeMainSlide 500ms ease forwards",
       },
     },
   },
