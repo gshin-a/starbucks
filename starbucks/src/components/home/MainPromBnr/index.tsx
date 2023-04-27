@@ -13,6 +13,7 @@ interface BnrSlide {
   preSliding: boolean;
   preSliding2: boolean;
   nextSliding: boolean;
+  nextSliding2: boolean;
   setMouseOver: React.Dispatch<SetStateAction<boolean>>;
 }
 
@@ -21,6 +22,7 @@ function BnrSlide({
   preSliding,
   preSliding2,
   nextSliding,
+  nextSliding2,
   setMouseOver,
 }: BnrSlide) {
   return (
@@ -30,7 +32,7 @@ function BnrSlide({
         preSliding ? "animate-prevSlide" : ""
       } ${preSliding2 ? "animate-prevSlide2" : ""} ${
         nextSliding ? "animate-nextSlide" : ""
-      }`}
+      } ${nextSliding2 ? "animate-nextSlide2" : ""}`}
     >
       <li
         className="relative opacity-1 screen1:my-0 screen1:mx-[0.3125rem]"
@@ -151,6 +153,7 @@ interface ControllerProps {
   setStopSlide: React.Dispatch<SetStateAction<boolean>>;
   buttonState: number;
   clickControlButton: (nextItem: number) => void;
+  isDisabled: boolean;
 }
 
 function Controller({
@@ -158,6 +161,7 @@ function Controller({
   setStopSlide,
   buttonState,
   clickControlButton,
+  isDisabled,
 }: ControllerProps) {
   return (
     <div className="absolute w-full h-3 text-center z-[9999] bottom-[-1.875rem]">
@@ -168,6 +172,7 @@ function Controller({
             : "bg-[url('/assets/img/home/main_prom_stop.png')]"
         }`}
         onClick={() => setStopSlide(!stopSlide)}
+        disabled={isDisabled}
       ></button>
       <div className="inline-block h-3">
         <button
@@ -177,6 +182,7 @@ function Controller({
               : "bg-[url('/assets/img/home/main_prom_off.png')]"
           } w-[0.8125rem] h-3`}
           onClick={() => clickControlButton(0)}
+          disabled={isDisabled}
         ></button>
       </div>
       <div className="inline-block h-3">
@@ -187,6 +193,7 @@ function Controller({
               : "bg-[url('/assets/img/home/main_prom_off.png')]"
           } w-[0.8125rem] h-3`}
           onClick={() => clickControlButton(1)}
+          disabled={isDisabled}
         ></button>
       </div>
       <div className="inline-block h-3">
@@ -197,6 +204,7 @@ function Controller({
               : "bg-[url('/assets/img/home/main_prom_off.png')]"
           } w-[0.8125rem] h-3`}
           onClick={() => clickControlButton(2)}
+          disabled={isDisabled}
         ></button>
       </div>
     </div>
@@ -216,7 +224,7 @@ function MainPromBnr() {
   async function prevSlide() {
     setButtonState(curItem === 0 ? 2 : curItem - 1);
     setPrevSliding(true);
-    await delay(1);
+    await delay(0.5);
     setPrevSliding(false);
     setCurItem(curItem === 0 ? 2 : curItem - 1);
   }
@@ -224,7 +232,7 @@ function MainPromBnr() {
   async function prevSlide2() {
     setButtonState(curItem === 2 ? 0 : curItem + 1);
     setPrevSliding2(true);
-    await delay(1);
+    await delay(0.5);
     setPrevSliding2(false);
     setCurItem(curItem === 2 ? 0 : curItem + 1);
   }
@@ -232,7 +240,7 @@ function MainPromBnr() {
   async function nextSlide() {
     setButtonState(curItem === 2 ? 0 : curItem + 1);
     setNextSliding(true);
-    await delay(1);
+    await delay(0.5);
     setNextSliding(false);
     setCurItem(curItem === 2 ? 0 : curItem + 1);
   }
@@ -240,7 +248,7 @@ function MainPromBnr() {
   async function nextSlide2() {
     setButtonState(curItem === 0 ? 2 : curItem - 1);
     setNextSliding2(true);
-    await delay(1);
+    await delay(0.5);
     setNextSliding2(false);
     setCurItem(curItem === 0 ? 2 : curItem - 1);
   }
@@ -281,6 +289,7 @@ function MainPromBnr() {
               preSliding={prevSliding}
               preSliding2={prevSliding2}
               nextSliding={nextSliding}
+              nextSliding2={nextSliding2}
               setMouseOver={setMouseOver}
             />
           </div>
@@ -289,14 +298,18 @@ function MainPromBnr() {
           <button
             className={`block w-[3.1875rem] h-[3.1875rem] border-[0.125rem] border-solid border-[#222] rounded-[1.71875rem]  bg-[url('/assets/img/home/arrow_left_on.png')] bg-center bg-no-repeat  hover:bg-white transition-colors`}
             onClick={prevSlide}
-            disabled={prevSliding || nextSliding}
+            disabled={
+              prevSliding || nextSliding || prevSliding2 || nextSliding2
+            }
           ></button>
         </p>
         <p className="absolute right-[3%] top-[14.0625rem] z-[2001]">
           <button
             className={`block w-[3.1875rem] h-[3.1875rem] border-[0.125rem] border-solid border-[#222] rounded-[1.71875rem]  bg-[url('/assets/img/home/arrow_right_on.png')] bg-center bg-no-repeat  hover:bg-white transition-colors`}
             onClick={nextSlide}
-            disabled={preSliding || nextSliding}
+            disabled={
+              prevSliding || nextSliding || prevSliding2 || nextSliding2
+            }
           ></button>
         </p>
         <Controller
@@ -304,6 +317,9 @@ function MainPromBnr() {
           setStopSlide={setStopSlide}
           buttonState={buttonState}
           clickControlButton={clickControlButton}
+          isDisabled={
+            prevSliding || nextSliding || prevSliding2 || nextSliding2
+          }
         />
       </div>
     </div>
