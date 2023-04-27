@@ -2,6 +2,7 @@
 "use client"
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function MainVisual() {
   return (
@@ -73,12 +74,12 @@ export default function MainVisual() {
         </div>
       </div>
       <div className="absolute w-[19%] h-[2.375rem] top-[56%] left-[13.3%] z-10 text-center opacity-0 animate-show5">
-        <a
+        <Link
           href="#"
           className="block w-2/5 h-full leading-[2.125rem] my-0 mx-auto text-[#014938] border-[0.125rem] border-solid border-[#014938] rounded-[0.3125rem] box-border screen5:text-[0.8125rem] hover:bg-[#014938] hover:text-white transition-colors duration-300"
         >
           자세히 보기
-        </a>
+        </Link>
       </div>
     </div>
   );

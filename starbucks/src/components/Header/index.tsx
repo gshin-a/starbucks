@@ -29,12 +29,12 @@ function UtilNav({ showSearch }: UtilNavProps) {
             }`}
             style={{ width: `${w}rem` }}
           >
-            <a
+            <Link
               href={link}
               className="block text-[0.8125rem] text-[#555] font-avenir screen1:leading-5"
             >
               {name}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -80,21 +80,21 @@ function GnbSubItem({ gnbsubitemList, isLast }: GnbSubItemProps) {
       } screen1:w-[13.75rem] screen2:w-[13.75rem]`}
     >
       <li className="w-full screen1:py-[0.1875rem] screen1:px-0 screen1:pb-3">
-        <a
+        <Link
           href={gnbsubitemList[0].link}
           className="screen1:text-white screen1:text-[0.875rem] font-normal"
         >
           {gnbsubitemList[0].name}
-        </a>
+        </Link>
       </li>
 
       {gnbsubitemList.map(
         ({ id, name, link }) =>
           id !== 1 && (
             <li key={id} className="w-full screen1:py-[0.1875rem] screen1:px-0">
-              <a href={link} className="text-[#999] text-[0.75rem]">
+              <Link href={link} className="text-[#999] text-[0.75rem]">
                 {name}
-              </a>
+              </Link>
             </li>
           )
       )}
@@ -109,12 +109,12 @@ function GnbSub({ gnbsubList }: GnbSubProps) {
         <ul className="flex">
           {gnbsubList.map(({ id, name, link, w, eng }) => (
             <li key={id} style={{ width: `${w}rem` }} className="group">
-              <a
+              <Link
                 href={link}
                 className="text-[#333] block text-[0.8125rem] text-center w-full font-avenir screen1:h-[3.5rem] leading-5 pt-[0.625rem] group-hover:bg-[#2C2A29] group-hover:text-[#669900]"
               >
                 {name}
-              </a>
+              </Link>
 
               <div className="max-h-0 overflow-hidden group-hover:max-h-[100vh] w-full bg-[#2C2A29] absolute transition-all duration-500 screen1:left-0 screen1:top-[4.125rem]">
                 <div className="inline-block w-full screen1:py-5 ">

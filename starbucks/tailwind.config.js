@@ -41,6 +41,22 @@ module.exports = {
             height: 0,
           },
         },
+        prevSlide: {
+          from: {
+            left: "-95.15625rem",
+          },
+          to: {
+            left: "-43.34375rem",
+          },
+        },
+        nextSlide: {
+          from: {
+            left: "-95.15625rem",
+          },
+          to: {
+            left: "-146.96875rem",
+          },
+        },
       },
       animation: {
         show1: "show 500ms ease forwards",
@@ -49,6 +65,8 @@ module.exports = {
         show4: "show 500ms ease 1500ms forwards",
         show5: "show 500ms ease 2s forwards",
         down: "down 1000ms ease forwards",
+        prevSlide: "prevSlide 500ms ease forwards",
+        nextSlide: "nextSlide 500ms ease forwards",
       },
     },
   },
