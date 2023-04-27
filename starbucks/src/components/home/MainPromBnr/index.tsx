@@ -11,6 +11,7 @@ const mainBnrList = [
 interface BnrSlide {
   curItem: number;
   preSliding: boolean;
+  preSliding2: boolean;
   nextSliding: boolean;
   setMouseOver: React.Dispatch<SetStateAction<boolean>>;
 }
@@ -18,16 +19,37 @@ interface BnrSlide {
 function BnrSlide({
   curItem,
   preSliding,
+  preSliding2,
   nextSliding,
   setMouseOver,
 }: BnrSlide) {
   return (
     <ul
       id="bnrslide"
-      className={`relative flex w-[500%] left-[-95.15625rem] ${
+      className={`relative flex w-[600%] left-[-146.96875rem] ${
         preSliding ? "animate-prevSlide" : ""
-      } ${nextSliding ? "animate-nextSlide" : ""}`}
+      } ${preSliding2 ? "animate-prevSlide2" : ""} ${
+        nextSliding ? "animate-nextSlide" : ""
+      }`}
     >
+      <li
+        className="relative opacity-1 screen1:my-0 screen1:mx-[0.3125rem]"
+        onMouseEnter={() => setMouseOver(true)}
+        onMouseLeave={() => setMouseOver(false)}
+      >
+        <Image
+          src={mainBnrList[curItem]}
+          alt="mainprombnr2"
+          width={819}
+          height={553}
+        />
+        <Link
+          href="#"
+          className="relative block border-[0.125rem] border-solid border-[#222] rounded-[0.1875rem] text-[#222] text-[0.875rem] w-[7.5625rem] h-[2.125rem] leading-[2.125rem] mt-[-3.125rem] mx-auto mb-0 text-center transition-colors duration-700 hover:bg-[#222] hover:text-white hover:rounded-[0.1875rem] hover:font-bold"
+        >
+          자세히 보기
+        </Link>
+      </li>
       <li className="relative opacity-[0.4] screen1:my-0 screen1:mx-[0.3125rem]">
         <Image
           src={curItem === 2 ? mainBnrList[0] : mainBnrList[curItem + 1]}
@@ -35,6 +57,12 @@ function BnrSlide({
           width={819}
           height={553}
         />
+        <Link
+          href="#"
+          className="relative block border-[0.125rem] border-solid border-[#222] rounded-[0.1875rem] text-[#222] text-[0.875rem] w-[7.5625rem] h-[2.125rem] leading-[2.125rem] mt-[-3.125rem] mx-auto mb-0 text-center transition-colors duration-700 hover:bg-[#222] hover:text-white hover:rounded-[0.1875rem] hover:font-bold"
+        >
+          자세히 보기
+        </Link>
       </li>
       <li className="relative opacity-[0.4] screen1:my-0 screen1:mx-[0.3125rem]">
         <Image
@@ -43,6 +71,12 @@ function BnrSlide({
           width={819}
           height={553}
         />
+        <Link
+          href="#"
+          className="relative block border-[0.125rem] border-solid border-[#222] rounded-[0.1875rem] text-[#222] text-[0.875rem] w-[7.5625rem] h-[2.125rem] leading-[2.125rem] mt-[-3.125rem] mx-auto mb-0 text-center transition-colors duration-700 hover:bg-[#222] hover:text-white hover:rounded-[0.1875rem] hover:font-bold"
+        >
+          자세히 보기
+        </Link>
       </li>
       <li
         className="relative opacity-1 screen1:my-0 screen1:mx-[0.3125rem]"
@@ -83,38 +117,159 @@ function BnrSlide({
           width={819}
           height={553}
         />
+        <Link
+          href="#"
+          className="relative block border-[0.125rem] border-solid border-[#222] rounded-[0.1875rem] text-[#222] text-[0.875rem] w-[7.5625rem] h-[2.125rem] leading-[2.125rem] mt-[-3.125rem] mx-auto mb-0 text-center transition-colors duration-700 hover:bg-[#222] hover:text-white hover:rounded-[0.1875rem] hover:font-bold"
+        >
+          자세히 보기
+        </Link>
+      </li>
+      <li
+        className="relative opacity-1 screen1:my-0 screen1:mx-[0.3125rem]"
+        onMouseEnter={() => setMouseOver(true)}
+        onMouseLeave={() => setMouseOver(false)}
+      >
+        <Image
+          src={mainBnrList[curItem]}
+          alt="mainprombnr2"
+          width={819}
+          height={553}
+        />
+        <Link
+          href="#"
+          className="relative block border-[0.125rem] border-solid border-[#222] rounded-[0.1875rem] text-[#222] text-[0.875rem] w-[7.5625rem] h-[2.125rem] leading-[2.125rem] mt-[-3.125rem] mx-auto mb-0 text-center transition-colors duration-700 hover:bg-[#222] hover:text-white hover:rounded-[0.1875rem] hover:font-bold"
+        >
+          자세히 보기
+        </Link>
       </li>
     </ul>
   );
 }
 
+interface ControllerProps {
+  stopSlide: boolean;
+  setStopSlide: React.Dispatch<SetStateAction<boolean>>;
+  buttonState: number;
+  clickControlButton: (nextItem: number) => void;
+}
+
+function Controller({
+  stopSlide,
+  setStopSlide,
+  buttonState,
+  clickControlButton,
+}: ControllerProps) {
+  return (
+    <div className="absolute w-full h-3 text-center z-[9999] bottom-[-1.875rem]">
+      <button
+        className={`inline-block relative w-[0.5625rem] h-3 ${
+          stopSlide
+            ? `bg-[url('/assets/img/home/main_prom_play.png')]`
+            : "bg-[url('/assets/img/home/main_prom_stop.png')]"
+        }`}
+        onClick={() => setStopSlide(!stopSlide)}
+      ></button>
+      <div className="inline-block h-3">
+        <button
+          className={`ml-[0.625rem] ${
+            buttonState === 0
+              ? `bg-[url('/assets/img/home/main_prom_on.png')]`
+              : "bg-[url('/assets/img/home/main_prom_off.png')]"
+          } w-[0.8125rem] h-3`}
+          onClick={() => clickControlButton(0)}
+        ></button>
+      </div>
+      <div className="inline-block h-3">
+        <button
+          className={`ml-[0.625rem] ${
+            buttonState === 1
+              ? `bg-[url('/assets/img/home/main_prom_on.png')]`
+              : "bg-[url('/assets/img/home/main_prom_off.png')]"
+          } w-[0.8125rem] h-3`}
+          onClick={() => clickControlButton(1)}
+        ></button>
+      </div>
+      <div className="inline-block h-3">
+        <button
+          className={`ml-[0.625rem] ${
+            buttonState === 2
+              ? `bg-[url('/assets/img/home/main_prom_on.png')]`
+              : "bg-[url('/assets/img/home/main_prom_off.png')]"
+          } w-[0.8125rem] h-3`}
+          onClick={() => clickControlButton(2)}
+        ></button>
+      </div>
+    </div>
+  );
+}
+
 function MainPromBnr() {
-  const [curItem, setCurItem] = useState(1);
-  const [preSliding, setPreSliding] = useState(false);
+  const [curItem, setCurItem] = useState(0);
+  const [prevSliding, setPrevSliding] = useState(false);
+  const [prevSliding2, setPrevSliding2] = useState(false);
   const [nextSliding, setNextSliding] = useState(false);
+  const [nextSliding2, setNextSliding2] = useState(false);
   const [mouseOver, setMouseOver] = useState(false);
+  const [stopSlide, setStopSlide] = useState(false);
+  const [buttonState, setButtonState] = useState(0);
 
   async function prevSlide() {
-    setPreSliding(true);
+    setButtonState(curItem === 0 ? 2 : curItem - 1);
+    setPrevSliding(true);
     await delay(1);
-    setPreSliding(false);
+    setPrevSliding(false);
     setCurItem(curItem === 0 ? 2 : curItem - 1);
   }
 
+  async function prevSlide2() {
+    setButtonState(curItem === 2 ? 0 : curItem + 1);
+    setPrevSliding2(true);
+    await delay(1);
+    setPrevSliding2(false);
+    setCurItem(curItem === 2 ? 0 : curItem + 1);
+  }
+
   async function nextSlide() {
+    setButtonState(curItem === 2 ? 0 : curItem + 1);
     setNextSliding(true);
     await delay(1);
     setNextSliding(false);
     setCurItem(curItem === 2 ? 0 : curItem + 1);
   }
 
+  async function nextSlide2() {
+    setButtonState(curItem === 0 ? 2 : curItem - 1);
+    setNextSliding2(true);
+    await delay(1);
+    setNextSliding2(false);
+    setCurItem(curItem === 0 ? 2 : curItem - 1);
+  }
+
+  function clickControlButton(nextItem: number) {
+    setStopSlide(true);
+    switch (buttonState - nextItem) {
+      case 1:
+        prevSlide();
+        return;
+      case 2:
+        prevSlide2();
+        return;
+      case -1:
+        nextSlide();
+        return;
+      case -2:
+        nextSlide2();
+        return;
+    }
+  }
+
   useEffect(() => {
     let showSlide = setInterval(() => {
       nextSlide();
     }, 2000);
-    if (mouseOver) clearInterval(showSlide);
+    if (mouseOver || stopSlide) clearInterval(showSlide);
     return () => clearInterval(showSlide);
-  }, [nextSlide, mouseOver]);
+  }, [nextSlide, mouseOver, stopSlide]);
 
   return (
     <div className="w-full z-10 relative bg-[#f6f5ef] border-t-[0.0625rem] border-solid border-[#f6f5ef] overflow-hidden screen1:h-[41.125rem] ">
@@ -123,7 +278,8 @@ function MainPromBnr() {
           <div className="w-full overflow-hidden relative h-[33.8125rem] screen1:overflow-visible">
             <BnrSlide
               curItem={curItem}
-              preSliding={preSliding}
+              preSliding={prevSliding}
+              preSliding2={prevSliding2}
               nextSliding={nextSliding}
               setMouseOver={setMouseOver}
             />
@@ -133,7 +289,7 @@ function MainPromBnr() {
           <button
             className={`block w-[3.1875rem] h-[3.1875rem] border-[0.125rem] border-solid border-[#222] rounded-[1.71875rem]  bg-[url('/assets/img/home/arrow_left_on.png')] bg-center bg-no-repeat  hover:bg-white transition-colors`}
             onClick={prevSlide}
-            disabled={preSliding || nextSliding}
+            disabled={prevSliding || nextSliding}
           ></button>
         </p>
         <p className="absolute right-[3%] top-[14.0625rem] z-[2001]">
@@ -143,6 +299,12 @@ function MainPromBnr() {
             disabled={preSliding || nextSliding}
           ></button>
         </p>
+        <Controller
+          stopSlide={stopSlide}
+          setStopSlide={setStopSlide}
+          buttonState={buttonState}
+          clickControlButton={clickControlButton}
+        />
       </div>
     </div>
   );
