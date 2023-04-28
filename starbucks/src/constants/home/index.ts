@@ -20,3 +20,9 @@ export const noticeList = [
     name: "시스템 개선 및 서비스 점검 안내",
   },
 ];
+
+export const mainBnrList = [
+  "/assets/img/home/FbOy46_20230102123439782.jpg",
+  "/assets/img/home/oJ7QKF_20230425084350288.jpg",
+  "/assets/img/home/8akpfI_20230320084449571.jpg",
+];
