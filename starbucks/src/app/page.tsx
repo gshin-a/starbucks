@@ -8,6 +8,7 @@ import MainVisual from "@/components/home/MainVisual";
 import NoticeLine from "@/components/home/NoticeLine";
 import MainPromBnr from "@/components/home/MainPromBnr";
 import delay from "@/utils/delay";
+import Rewards from "@/components/home/Rewards";
 
 function Home() {
   const [openBnr, setOpenBnr] = useState(false);
@@ -29,6 +30,7 @@ function Home() {
         closeBnr={closeBnr}
       />
       {openBnr && <MainPromBnr animateCloseBnr={animateCloseBnr} />}
+      <Rewards />
     </div>
   );
 }
