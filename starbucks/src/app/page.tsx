@@ -11,6 +11,7 @@ import delay from "@/utils/delay";
 import Rewards from "@/components/home/Rewards";
 import SeasonBnr from "@/components/home/SeasonBnr";
 import Reserve from "@/components/home/Reserve";
+import Fav from "@/components/home/Fav";
 
 function Home() {
   const [openBnr, setOpenBnr] = useState(false);
@@ -23,7 +24,7 @@ function Home() {
     setAnimateCloseBnr(false);
   }
   return (
-    <div>
+    <div className="relative w-full overflow-x-hidden">
       <LayerFloating />
       <MainVisual />
       <NoticeLine
@@ -35,6 +36,7 @@ function Home() {
       <Rewards />
       <SeasonBnr />
       <Reserve />
+      <Fav />
     </div>
   );
 }
