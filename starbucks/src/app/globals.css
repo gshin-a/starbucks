@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "NanumBarunGothic";
+  src: url("../../public/assets/font/NanumBarunGothic.eot");
+  src: url("../../public/assets/font/NanumBarunGothic.eot")
+      format("embedded-opentype"),
+    url("../../public/assets/font/NanumBarunGothic.woff") format("woff");
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -9,8 +17,8 @@
 }
 
 body {
-  font-family: "nbg", "맑은 고딕", HelveticaNeue, DroidSans, Sans-serif,
-    Helvetica;
+  font-family: "NanumBarunGothic", "맑은 고딕", HelveticaNeue, DroidSans,
+    Sans-serif, Helvetica;
   line-height: 1;
 }
 

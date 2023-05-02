@@ -13,7 +13,7 @@ function Rewards() {
             height={153}
           />
         </div>
-        <div className="box-border w-[calc(83.7%-5rem)] pr-[1.875rem] text-white">
+        <div className="box-border w-[calc(83.7%-5rem)] pr-[1.875rem] text-white tracking-[0.03125rem]">
           <div className="relative mb-[1.375rem] border-b-[0.0625rem] border-solid border-[#4b615b]">
             <div className="mb-3">
               <h2 className="leading-[1.4] mb-3 text-[1.625rem] font-normal">

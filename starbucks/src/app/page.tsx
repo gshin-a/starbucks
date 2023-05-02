@@ -9,6 +9,7 @@ import NoticeLine from "@/components/home/NoticeLine";
 import MainPromBnr from "@/components/home/MainPromBnr";
 import delay from "@/utils/delay";
 import Rewards from "@/components/home/Rewards";
+import SeasonBnr from "@/components/home/SeasonBnr";
 
 function Home() {
   const [openBnr, setOpenBnr] = useState(false);
@@ -31,6 +32,7 @@ function Home() {
       />
       {openBnr && <MainPromBnr animateCloseBnr={animateCloseBnr} />}
       <Rewards />
+      <SeasonBnr />
     </div>
   );
 }
