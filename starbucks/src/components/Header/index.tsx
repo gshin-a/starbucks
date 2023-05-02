@@ -148,7 +148,7 @@ function Header() {
   const [showSearch, setShowSearch] = useState(false);
 
   return (
-    <header className="relative h-[7.5rem]">
+    <header className="block screen4:hidden relative h-[7.5rem]">
       <div className="fixed top-0 left-0 w-full bg-[#f6f5ef] border-b-[0.0625rem] border-b-solid border-b-[#e5e5e5] border-t-[0.125rem] border-t-solid border-t-black screen1:h-[7.5rem] screen1:z-[999]">
         <div className="relative my-0 mx-auto screen1:w-[68.75rem] screen1:h-[7.5rem] screen2:w-full screen2:h-[7.5rem]">
           <h1 className="absolute left-0 screen1:w-[4.6875rem] screen1:h-[4.6875rem] screen1:top-[1.375rem] screen1:z-[12] screen2:w-[4.6875rem] screen2:h-[4.6875rem] screen2:top-[1.375rem] screen2:left-5">
