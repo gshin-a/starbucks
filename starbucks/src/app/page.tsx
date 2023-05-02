@@ -12,6 +12,7 @@ import Rewards from "@/components/home/Rewards";
 import SeasonBnr from "@/components/home/SeasonBnr";
 import Reserve from "@/components/home/Reserve";
 import Fav from "@/components/home/Fav";
+import ReserveMagazine from "@/components/home/ReserveMagazine";
 
 function Home() {
   const [openBnr, setOpenBnr] = useState(false);
@@ -37,6 +38,7 @@ function Home() {
       <SeasonBnr />
       <Reserve />
       <Fav />
+      <ReserveMagazine />
     </div>
   );
 }
