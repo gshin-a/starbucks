@@ -21,7 +21,10 @@ function SeasonBnr() {
             className="hidden screen4:block w-full max-w-full align-top"
           />
         </div>
-        <div className="absolute z-[9] w-[37.63%] max-w-[21.1875rem] top-[32.8%] right-[8.4% screen8:right-[15%] screen8:top-[35%] screen8:w-[30%] screen7:right-[14.7%] screen7:top-[34%] screen7:w-[32%]">
+        <div
+          className="absolute z-[9] w-[37.63%] max-w-[21.1875rem] top-[32.8%] right-[8.4%] screen8:right-[15%] screen8:top-[35%] screen8:w-[30%] screen7:right-[14.7%] screen7:top-[34%] screen7:w-[32%]"
+          style={{ right: "12%" }}
+        >
           <Image
             src="/assets/img/home/2023_spring_promotion_txt_2.png"
             width={403}
