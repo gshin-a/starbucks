@@ -13,6 +13,7 @@ import SeasonBnr from "@/components/home/SeasonBnr";
 import Reserve from "@/components/home/Reserve";
 import Fav from "@/components/home/Fav";
 import ReserveMagazine from "@/components/home/ReserveMagazine";
+import Store from "@/components/home/Store";
 
 function Home() {
   const [openBnr, setOpenBnr] = useState(false);
@@ -39,6 +40,7 @@ function Home() {
       <Reserve />
       <Fav />
       <ReserveMagazine />
+      <Store />
     </div>
   );
 }
