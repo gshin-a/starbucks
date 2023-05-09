@@ -85,7 +85,7 @@ export default function MainVisual() {
       <div className="absolute w-[19%] h-[2.375rem] top-[56%] left-[13.3%] z-10 text-center opacity-0 animate-show5 screen17:z-10 screen17:top-[91%] screen17:left-1/2 screen17:-translate-x-1/2 screen17:w-full screen17:my-0 screen17:mx-auto screen17:h-auto screen17:bottom-auto screen17:animate-show6">
         <Link
           href="#"
-          className="block w-2/5 h-full leading-[2.125rem] my-0 mx-auto text-[#014938] border-[0.125rem] border-solid border-[#014938] rounded-[0.3125rem] box-border screen5:text-[0.8125rem] hover:bg-[#014938] hover:text-white transition-colors duration-300 screen17:border-white screen17:w-[36%] screen17:text-white screen17:leading-[10vw] screen17:text-[1.4375rem] screen17:font-bold screen17:rounded-[0.1875rem] screen17:hover:bg-white screen17:hover:text-black"
+          className="block w-2/5 h-full leading-[2.125rem] my-0 mx-auto text-[#014938] border-[0.125rem] border-solid border-[#014938] rounded-[0.3125rem] box-border screen5:text-[0.8125rem] hover:bg-[#014938] hover:text-white transition-colors duration-300 screen17:border-white screen17:w-[36%] screen17:text-white screen17:leading-[10vw] screen17:text-[1.4375rem] screen17:font-bold screen17:rounded-[0.1875rem] screen17:hover:bg-white screen17:hover:text-black screen18:text-[1rem]"
         >
           자세히 보기
         </Link>
