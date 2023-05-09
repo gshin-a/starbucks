@@ -57,7 +57,7 @@ function BnrSlide({ curItem, slidingState, setMouseOver }: BnrSlideProps) {
   return (
     <ul
       id="bnrslide"
-      className={`relative flex w-[600%] left-[-146.96875rem] screen16:left-0 ${
+      className={`relative flex w-[600%] left-[-146.96875rem] screen16:left-[-90rem] ${
         slidingState === "prev" ? "animate-prevSlide" : ""
       } ${slidingState === "prev2" ? "animate-prevSlide2" : ""} ${
         slidingState === "next" ? "animate-nextSlide" : ""
