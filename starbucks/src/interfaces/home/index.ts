@@ -26,3 +26,11 @@ export interface BnrSlideItemProps {
   curItem: number;
   idx: number;
 }
+
+// NoticeLine
+
+export interface NoticeLineProps {
+  openBnr: boolean;
+  setOpenBnr: React.Dispatch<React.SetStateAction<boolean>>;
+  closeBnr: () => void;
+}

@@ -21,17 +21,17 @@ function HeaderM() {
             <li className="flex items-center justify-center w-[3.75rem] relative h-[3.75rem] mt-[0.625rem] mr-0 mb-0">
               <Link
                 href="#"
-                className="block absolute overflow-hidden w-[1.5625rem] h-[1.875rem] bg-[url('/assets/img/headerm/icon_user_m.png')] bg-[length:100%_auto]"
+                className="block absolute overflow-hidden w-[1.5625rem] h-[1.875rem] bg-[url('/assets/img/headerm/icon_user_m.png')] bg-100auto"
               ></Link>
             </li>
             <li className="flex items-center justify-center w-[3.75rem] relative h-[3.75rem] mt-[0.625rem] mr-0 mb-0">
               <Link
                 href="#"
-                className="block absolute overflow-hidden w-6 h-8 bg-[url('/assets/img/headerm/icon_spot_m.png')] bg-[length:100%_auto]"
+                className="block absolute overflow-hidden w-6 h-8 bg-[url('/assets/img/headerm/icon_spot_m.png')] bg-100auto"
               ></Link>
             </li>
             <li className="flex items-center justify-center w-[3.75rem] relative h-[3.75rem] mt-[0.625rem] mr-0 mb-0">
-              <button className="block absolute overflow-hidden w-[1.75rem] h-[1.625rem] bg-[url('/assets/img/headerm/btn_berger_m.png')] bg-[length:100%_auto]"></button>
+              <button className="block absolute overflow-hidden w-[1.75rem] h-[1.625rem] bg-[url('/assets/img/headerm/btn_berger_m.png')] bg-100auto"></button>
             </li>
           </ul>
         </nav>

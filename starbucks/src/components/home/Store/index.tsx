@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function Store() {
   return (
-    <div className="relative overflow-hidden w-full h-[25rem] bg-[url('/assets/img/home/store_bg.jpg')] bg-[length:100%_auto]">
+    <div className="relative overflow-hidden w-full h-[25rem] bg-[url('/assets/img/home/store_bg.jpg')] bg-100auto">
       <div className="absolute left-1/2 -ml-[40rem] top-0 w-[80rem]">
         <div className="absolute w-[14.25rem] h-[14.25rem] left-[24.375rem] top-[9.3125rem] z-[5] bg-[url('/assets/img/home/221212_main_story_2.png')] bg-contain"></div>
         <div className="absolute w-[22.875rem] h-[19.5rem] left-40 top-0 z-[4] bg-[url('/assets/img/home/221212_main_story_1.png')] bg-contain"></div>
