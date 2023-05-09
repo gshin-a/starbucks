@@ -11,7 +11,7 @@ function Reserve() {
             alt="title"
             width={309}
             height={168}
-            className=" align-top max-w-full w-auto translate-x-[10.0625rem] screen10:transform-none"
+            className=" align-top max-w-full translate-x-[10.0625rem] screen10:transform-none"
           />
         </div>
         <div className="block absolute right-0 bottom-0 screen15:right-[-4%] screen15:screen14:right-[-8%] screen15:screen14:screen9:right-[-12%] screen15:screen14:screen9:screen13:right-[-16%] screen15:screen14:screen9:screen13:screen8:right-[-19%] screen15:screen14:screen9:screen13:screen8:screen12:right-[-24%] screen15:screen14:screen9:screen13:screen8:screen12:screen11:right-[-33%] screen15:screen14:screen9:screen13:screen8:screen12:screen11:screen7:right-[-44%] screen15:screen14:screen9:screen13:screen8:screen12:screen11:screen7:screen10:bottom-[-6%] screen10:right-[-42%] \">
