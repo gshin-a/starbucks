@@ -1,12 +1,13 @@
 // prettier-ignore
 "use client"
 
-import { useState, useEffect, SetStateAction } from "react";
+import { useState, useEffect } from "react";
+import { useRecoilState } from "recoil";
 import Image from "next/image";
 import delay from "@/utils/delay";
 import { noticeList } from "@/constants/home";
 import Link from "next/link";
-import { NoticeLineProps } from "@/interfaces/home";
+import { bnrState, animateCloseBnrState } from "@/recoil/states";
 
 function LeftNoticeLine() {
   const [curNotice, setCurNotice] = useState(-1);
@@ -82,7 +83,18 @@ function LeftNoticeLine() {
   );
 }
 
-function RightNoticeLine({ openBnr, setOpenBnr, closeBnr }: NoticeLineProps) {
+function RightNoticeLine() {
+  const [openBnr, setOpenBnr] = useRecoilState(bnrState);
+  const [animateCloseBnr, setAnimateCloseBnr] =
+    useRecoilState(animateCloseBnrState);
+
+  async function closeBnr() {
+    setAnimateCloseBnr(true);
+    await delay(0.5);
+    setOpenBnr(false);
+    setAnimateCloseBnr(false);
+  }
+
   return (
     <div className="relative screen1:w-[34.375rem] screen1:h-[3.875rem] screen1:z-10 screen6:w-[45%] screen16:h-20 screen16:w-[45%] screen18:w-full screen18:h-1/2 screen19:w-full screen19:h-1/2">
       <button
@@ -110,11 +122,7 @@ function RightNoticeLine({ openBnr, setOpenBnr, closeBnr }: NoticeLineProps) {
   );
 }
 
-export default function NoticeLine({
-  openBnr,
-  setOpenBnr,
-  closeBnr,
-}: NoticeLineProps) {
+export default function NoticeLine() {
   return (
     <div className="relative block w-full screen1:h-[3.875rem] screen16:h-20 screen18:h-[8.75rem] screen19:h-[13.75rem]">
       <div className="absolute top-0 left-0 bg-[#111] screen1:h-full screen1:w-1/2 screen16:h-20 screen16:w-[55%] screen18:h-[4.375rem] screen18:w-full screen19:w-full screen19:h-1/2"></div>
@@ -122,11 +130,7 @@ export default function NoticeLine({
       <div className="absolute top-0 screen1:h-full screen1:w-[80rem] screen1:ml-[-40rem] screen1:bg-[url('/assets/img/home/line_notice_bg.jpg')] screen1:left-1/2 screen6:ml-[-30rem] screen6:w-[60rem] screen6:bg-none screen16:bg-none screen16:h-20 screen16:w-full screen18:w-full screen18:h-full  screen19:w-full screen19:h-full">
         <div className="flex w-full h-full screen18:flex-col screen19:flex-col">
           <LeftNoticeLine />
-          <RightNoticeLine
-            openBnr={openBnr}
-            setOpenBnr={setOpenBnr}
-            closeBnr={closeBnr}
-          />
+          <RightNoticeLine />
         </div>
       </div>
     </div>

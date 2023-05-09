@@ -5,11 +5,14 @@ import delay from "@/utils/delay";
 import {
   BnrSlideProps,
   ControllerProps,
-  MainPromBnrProps,
   MakeSrcIdxProps,
   BnrSlideItemProps,
+  ControllerButtonProps,
 } from "@/interfaces/home";
 import { mainBnrList } from "@/constants/home";
+
+import { useRecoilState } from "recoil";
+import { bnrState, animateCloseBnrState } from "@/recoil/states";
 
 function makeSrcIdx({ idx, curItem }: MakeSrcIdxProps) {
   switch (idx) {
@@ -28,7 +31,7 @@ function makeSrcIdx({ idx, curItem }: MakeSrcIdxProps) {
 function BnrSlideItem({ setMouseOver, curItem, idx }: BnrSlideItemProps) {
   return (
     <li
-      className={`relative ${
+      className={`relative screen16:w-[31.25rem] ${
         idx === 4 ? "opacity-1" : "opacity-[0.4]"
       } screen1:my-0 screen1:mx-[0.3125rem]`}
       onMouseEnter={() => idx === 4 && setMouseOver(true)}
@@ -54,7 +57,7 @@ function BnrSlide({ curItem, slidingState, setMouseOver }: BnrSlideProps) {
   return (
     <ul
       id="bnrslide"
-      className={`relative flex w-[600%] left-[-146.96875rem] ${
+      className={`relative flex w-[600%] left-[-146.96875rem] screen16:left-0 ${
         slidingState === "prev" ? "animate-prevSlide" : ""
       } ${slidingState === "prev2" ? "animate-prevSlide2" : ""} ${
         slidingState === "next" ? "animate-nextSlide" : ""
@@ -70,13 +73,6 @@ function BnrSlide({ curItem, slidingState, setMouseOver }: BnrSlideProps) {
       ))}
     </ul>
   );
-}
-
-interface ControllerButtonProps {
-  buttonState: number;
-  curbuttonNum: number;
-  clickControlButton: (nextItem: number) => void;
-  isDisabled: boolean;
 }
 
 function ControllerButton({
@@ -131,12 +127,16 @@ function Controller({
   );
 }
 
-function MainPromBnr({ animateCloseBnr }: MainPromBnrProps) {
+function MainPromBnr() {
   const [curItem, setCurItem] = useState(0);
   const [slidingState, setSlidingState] = useState("default");
   const [mouseOver, setMouseOver] = useState(false);
   const [stopSlide, setStopSlide] = useState(false);
   const [buttonState, setButtonState] = useState(0);
+
+  const [openBnr, setOpenBnr] = useRecoilState(bnrState);
+  const [animateCloseBnr, setAnimateCloseBnr] =
+    useRecoilState(animateCloseBnrState);
 
   async function slide(type: string) {
     const nextState =
@@ -182,15 +182,17 @@ function MainPromBnr({ animateCloseBnr }: MainPromBnrProps) {
 
   return (
     <div
-      className={`w-full z-10 relative bg-[#f6f5ef] border-t-[0.0625rem] border-solid border-[#f6f5ef] overflow-hidden screen1:h-[41.125rem]  ${
+      className={`${
+        openBnr ? "block" : "hidden"
+      } w-full z-10 relative bg-[#f6f5ef] border-t-[0.0625rem] border-solid border-[#f6f5ef] overflow-hidden screen1:h-[41.125rem] screen16:h-[27.875rem]  ${
         animateCloseBnr
           ? "screen1:animate-closeMainSlide"
           : "screen1:animate-showMainSlide"
       }`}
     >
-      <div className="relative text-center left-1/2 screen1:w-[68.75rem] screen1:h-[34.5625rem] screen1:mt-[2.4375rem] screen1:ml-[-34.375rem]">
+      <div className="relative text-center left-1/2 screen1:w-[68.75rem] screen1:h-[34.5625rem] screen1:mt-[2.4375rem] screen1:ml-[-34.375rem] screen16:h-[26.3125rem] screen16:mt-[1.5625rem] screen16:-ml-[19.375rem] screen16:w-[38.75rem]">
         <div className="relative mt-0 mx-auto mb-[3.75rem] max-w-full">
-          <div className="w-full overflow-hidden relative h-[33.8125rem] screen1:overflow-visible">
+          <div className="w-full overflow-hidden relative h-[33.8125rem] screen1:overflow-visible screen16:h-[21.625rem]">
             <BnrSlide
               curItem={curItem}
               slidingState={slidingState}
