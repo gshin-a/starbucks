@@ -2,9 +2,9 @@ import Link from "next/link";
 
 function HeaderM() {
   return (
-    <div className="relative hidden screen16:block h-[3.625rem] border-b-[0.125rem] border-solid border-[#000]">
+    <div className="relative hidden screen17:block h-[4.1875rem] border-b-[0.125rem] border-solid border-[#000]">
       <div className="flex justify-between items-center fixed w-full h-[4.3125rem] left-0 z-20 bg-[#f6f5ef] border-b-[0.0625rem] border-solid border-[#e5e5e5]">
-        <div className="hidden screen2:block w-[2.8125rem] h-[2.8125rem] ml-[0.625rem]">
+        <div className="block w-[2.8125rem] h-[2.8125rem] ml-[0.625rem]">
           <Link
             href="/"
             className="block w-full h-full bg-[length:2.8125rem_auto] bg-[url('/assets/img/headerm/logo.png')] overflow-hidden"

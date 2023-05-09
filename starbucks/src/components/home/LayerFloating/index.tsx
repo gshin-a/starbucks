@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function LayerFloating() {
   return (
-    <div className="fixed top-[9.625rem] left-[54.5%] w-[8.75rem] ml-[30.3125rem] z-[999] screen1:left-auto screen1:right-[1%]">
+    <div className="fixed top-[9.625rem] left-[54.5%] w-[8.75rem] ml-[30.3125rem] z-[999] screen12:left-auto screen12:right-[1%] screen17:top-[6.75rem] screen17:w-[25.7%] screen17:[1.8%]">
       <div>
         <Link href="#" className="block w-full h-full">
           <Image
@@ -21,7 +21,7 @@ export default function LayerFloating() {
             alt="mobile-badge"
             width={166}
             height={116}
-            className="hidden screen4:block"
+            className="hidden screen4:block w-full"
           />
         </Link>
       </div>
@@ -39,7 +39,7 @@ export default function LayerFloating() {
             alt="mobile-badge"
             width={166}
             height={116}
-            className="hidden screen4:block"
+            className="hidden screen4:block w-full"
           />
         </Link>
       </div>
