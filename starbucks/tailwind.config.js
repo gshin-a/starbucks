@@ -107,6 +107,7 @@ module.exports = {
         show3: "show 500ms ease 1s forwards",
         show4: "show 500ms ease 1500ms forwards",
         show5: "show 500ms ease 2s forwards",
+        show6: "show 500ms ease 2500ms forwards",
         down: "down 1000ms ease-in forwards",
         prevSlide: "prevSlide 300ms ease forwards",
         prevSlide2: "prevSlide2 300ms ease forwards",
