@@ -11,6 +11,11 @@ export interface BnrSlideItemProps {
   setMouseOver: React.Dispatch<React.SetStateAction<boolean>>;
   curItem: number;
   idx: number;
+  setCurItem: React.Dispatch<React.SetStateAction<number>>;
+  setDiffX: React.Dispatch<React.SetStateAction<number>>;
+  setStopSlide: React.Dispatch<React.SetStateAction<boolean>>;
+  setTouchEnd: React.Dispatch<React.SetStateAction<boolean>>;
+  setButtonState: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface ControllerProps {
@@ -30,4 +35,7 @@ export interface BnrSlideProps {
   curItem: number;
   slidingState: string;
   setMouseOver: React.Dispatch<React.SetStateAction<boolean>>;
+  setCurItem: React.Dispatch<React.SetStateAction<number>>;
+  setStopSlide: React.Dispatch<React.SetStateAction<boolean>>;
+  setButtonState: React.Dispatch<React.SetStateAction<number>>;
 }

@@ -23,7 +23,7 @@ function Reserve() {
             className="block screen4:hidden max-w-none"
           />
           <Image
-            src="/assets/img/home/230418_m_reserve_bg.png"
+            src="/assets/img/home/230418_m_reserve_bg.jpg"
             width={640}
             height={1056}
             alt="m"

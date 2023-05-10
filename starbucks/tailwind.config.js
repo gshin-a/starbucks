@@ -86,6 +86,38 @@ module.exports = {
             left: "-250.59375rem",
           },
         },
+        prevSlideT: {
+          from: {
+            left: "-92.1875rem",
+          },
+          to: {
+            left: "-60.3125rem",
+          },
+        },
+        prevSlide2T: {
+          from: {
+            left: "-146.96875rem",
+          },
+          to: {
+            left: "-28.4375rem",
+          },
+        },
+        nextSlideT: {
+          from: {
+            left: "-92.1875rem",
+          },
+          to: {
+            left: "-124.0625rem",
+          },
+        },
+        nextSlide2T: {
+          from: {
+            left: "-92.1875rem",
+          },
+          to: {
+            left: "-155.9375rem",
+          },
+        },
         showMainSlide: {
           from: {
             height: 0,
@@ -97,6 +129,22 @@ module.exports = {
         closeMainSlide: {
           from: {
             height: "41.125rem",
+          },
+          to: {
+            height: 0,
+          },
+        },
+        showMainSlideT: {
+          from: {
+            height: 0,
+          },
+          to: {
+            height: "27.875rem",
+          },
+        },
+        closeMainSlideT: {
+          from: {
+            height: "27.875rem",
           },
           to: {
             height: 0,
@@ -115,8 +163,14 @@ module.exports = {
         prevSlide2: "prevSlide2 300ms ease forwards",
         nextSlide: "nextSlide 300ms ease forwards",
         nextSlide2: "nextSlide2 300ms ease forwards",
+        prevSlideT: "prevSlideT 300ms ease forwards",
+        prevSlide2T: "prevSlide2T 300ms ease forwards",
+        nextSlideT: "nextSlideT 300ms ease forwards",
+        nextSlide2T: "nextSlide2T 300ms ease forwards",
         showMainSlide: "showMainSlide 500ms ease forwards",
         closeMainSlide: "closeMainSlide 500ms ease forwards",
+        showMainSlideT: "showMainSlideT 500ms ease forwards",
+        closeMainSlideT: "closeMainSlideT 500ms ease forwards",
       },
     },
   },

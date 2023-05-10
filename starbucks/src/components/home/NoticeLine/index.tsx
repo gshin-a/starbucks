@@ -55,7 +55,7 @@ function LeftNoticeLine() {
               {noticeList.map(({ id, name }, idx) => (
                 <li
                   key={id}
-                  className={`noticelistItem h-6 leading-6 screen6:w-[55%] screen18:w-1/2 screen19:w-3/5 ${
+                  className={`noticelistItem h-6 leading-6 screen6:w-[55%] screen16:w-2/5 screen18:w-1/2 screen19:w-3/5 ${
                     idx === curNotice ? "animate-down overflow-hidden" : ""
                   } `}
                 >
