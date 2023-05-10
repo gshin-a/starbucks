@@ -68,12 +68,12 @@ function BnrSlideItem({
               typeof itemWidth === "string" ? `-${itemWidth}` : -itemWidth
             );
             setButtonState(curItem === 2 ? 0 : curItem + 1);
-            await delay(1);
+            await delay(0.5);
             setCurItem(curItem === 2 ? 0 : curItem + 1);
           } else if (e.changedTouches[0].pageX - curX > 0) {
             setDiffX(itemWidth);
             setButtonState(curItem === 0 ? 2 : curItem - 1);
-            await delay(1);
+            await delay(0.5);
             setCurItem(curItem === 0 ? 2 : curItem - 1);
           }
 
