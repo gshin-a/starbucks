@@ -30,6 +30,8 @@ module.exports = {
         screen17: { max: "960px" },
         screen18: { max: "480px" },
         screen19: { min: "481px", max: "660px" },
+        screen20: { min: "376px", max: "480px" },
+        screen21: { max: "375px" },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -118,6 +120,38 @@ module.exports = {
             left: "-155.9375rem",
           },
         },
+        prevSlideM: {
+          from: {
+            left: "-300vw",
+          },
+          to: {
+            left: "-200vw",
+          },
+        },
+        prevSlide2M: {
+          from: {
+            left: "-300vw",
+          },
+          to: {
+            left: "-100vw",
+          },
+        },
+        nextSlideM: {
+          from: {
+            left: "-300vw",
+          },
+          to: {
+            left: "-400vw",
+          },
+        },
+        nextSlide2M: {
+          from: {
+            left: "-300vw",
+          },
+          to: {
+            left: "-500vw",
+          },
+        },
         showMainSlide: {
           from: {
             height: 0,
@@ -150,6 +184,22 @@ module.exports = {
             height: 0,
           },
         },
+        showMainSlideM: {
+          from: {
+            height: 0,
+          },
+          to: {
+            height: "23.125rem",
+          },
+        },
+        closeMainSlideM: {
+          from: {
+            height: "23.125rem",
+          },
+          to: {
+            height: 0,
+          },
+        },
       },
       animation: {
         show1: "show 500ms ease forwards",
@@ -167,10 +217,16 @@ module.exports = {
         prevSlide2T: "prevSlide2T 300ms ease forwards",
         nextSlideT: "nextSlideT 300ms ease forwards",
         nextSlide2T: "nextSlide2T 300ms ease forwards",
+        prevSlideM: "prevSlideM 300ms ease forwards",
+        prevSlide2M: "prevSlide2M 300ms ease forwards",
+        nextSlideM: "nextSlideM 300ms ease forwards",
+        nextSlide2M: "nextSlide2M 300ms ease forwards",
         showMainSlide: "showMainSlide 500ms ease forwards",
         closeMainSlide: "closeMainSlide 500ms ease forwards",
         showMainSlideT: "showMainSlideT 500ms ease forwards",
         closeMainSlideT: "closeMainSlideT 500ms ease forwards",
+        showMainSlideM: "showMainSlideM 500ms ease forwards",
+        closeMainSlideM: "closeMainSlideM 500ms ease forwards",
       },
     },
   },

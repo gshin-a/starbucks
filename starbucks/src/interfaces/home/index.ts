@@ -12,7 +12,7 @@ export interface BnrSlideItemProps {
   curItem: number;
   idx: number;
   setCurItem: React.Dispatch<React.SetStateAction<number>>;
-  setDiffX: React.Dispatch<React.SetStateAction<number>>;
+  setDiffX: React.Dispatch<React.SetStateAction<number | string>>;
   setStopSlide: React.Dispatch<React.SetStateAction<boolean>>;
   setTouchEnd: React.Dispatch<React.SetStateAction<boolean>>;
   setButtonState: React.Dispatch<React.SetStateAction<number>>;

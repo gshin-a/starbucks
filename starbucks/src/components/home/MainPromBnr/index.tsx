@@ -41,7 +41,7 @@ function BnrSlideItem({
   const [curX, setCurX] = useState(0);
   return (
     <li
-      className={`relative screen16:w-[31.25rem] screen16:my-0 screen16:mx-[0.3125rem] screen19:w-[31.25rem] screen19:my-0 screen19:mx-[0.3125rem] ${
+      className={`relative screen16:w-[31.25rem] screen16:my-0 screen16:mx-[0.3125rem] screen19:w-[31.25rem] screen19:my-0 screen19:mx-[0.3125rem] screen18:w-[100vw] ${
         idx === 4 ? "opacity-1" : "opacity-[0.4]"
       } screen1:my-0 screen1:mx-[0.3125rem]`}
       onMouseEnter={() => idx === 4 && setMouseOver(true)}
@@ -54,10 +54,19 @@ function BnrSlideItem({
       onTouchEnd={async (e) => {
         if (idx === 4) {
           setTouchEnd(true);
-          const itemWidth = screen.width <= 960 ? 510 : 829;
+          let itemWidth = -1 as number | string;
+          if (screen.width > 960) {
+            itemWidth = 829;
+          } else if (screen.width > 481) {
+            itemWidth = 510;
+          } else {
+            itemWidth = "100vw";
+          }
 
           if (e.changedTouches[0].pageX - curX < 0) {
-            setDiffX(-itemWidth);
+            setDiffX(
+              typeof itemWidth === "string" ? `-${itemWidth}` : -itemWidth
+            );
             setButtonState(curItem === 2 ? 0 : curItem + 1);
             await delay(1);
             setCurItem(curItem === 2 ? 0 : curItem + 1);
@@ -88,7 +97,7 @@ function BnrSlideItem({
       />
       <Link
         href="#"
-        className="relative block border-[0.125rem] border-solid border-[#222] rounded-[0.1875rem] text-[#222] text-[0.875rem] w-[7.5625rem] h-[2.125rem] leading-[2.125rem] mt-[-3.125rem] mx-auto mb-0 text-center transition-colors duration-700 hover:bg-[#222] hover:text-white hover:rounded-[0.1875rem] hover:font-bold screen16:-mt-[1.875rem] screen16:mx-auto screen16:mb-0 screen19:-mt-[1.875rem] screen19:mx-auto screen19:mb-0"
+        className="relative block border-[0.125rem] border-solid border-[#222] rounded-[0.1875rem] text-[#222] text-[0.875rem] w-[7.5625rem] h-[2.125rem] leading-[2.125rem] mt-[-3.125rem] mx-auto mb-0 text-center transition-colors duration-700 hover:bg-[#222] hover:text-white hover:rounded-[0.1875rem] hover:font-bold screen16:-mt-[1.875rem] screen16:mx-auto screen16:mb-0 screen19:-mt-[1.875rem] screen19:mx-auto screen19:mb-0 screen18:mt-[0.3125rem] screen18:mx-auto screen18:mb-0"
       >
         자세히 보기
       </Link>
@@ -104,29 +113,29 @@ function BnrSlide({
   setStopSlide,
   setButtonState,
 }: BnrSlideProps) {
-  const [diffX, setDiffX] = useState(0);
+  const [diffX, setDiffX] = useState<string | number>(0);
   const [touchEnd, setTouchEnd] = useState(false);
 
   return (
     <ul
       id="bnrslide"
-      className={`relative flex w-[600%] left-[-146.96875rem] screen16:left-[-92.1875rem] screen19:left-[-92.1875rem] ${
+      className={`relative flex w-[1000%] left-[-146.96875rem] screen16:left-[-92.1875rem] screen19:left-[-92.1875rem] screen18:left-[-300vw] ${
         touchEnd ? "transition-[margin] duration-500" : ""
       } ${
         slidingState === "prev"
-          ? "animate-prevSlide screen16:animate-prevSlideT screen19:animate-prevSlideT"
+          ? "animate-prevSlide screen16:animate-prevSlideT screen19:animate-prevSlideT screen18:animate-prevSlideM"
           : ""
       } ${
         slidingState === "prev2"
-          ? "animate-prevSlide2 screen16:animate-prevSlide2T screen19:animate-prevSlide2T"
+          ? "animate-prevSlide2 screen16:animate-prevSlide2T screen19:animate-prevSlide2T screen18:animate-prevSlide2M"
           : ""
       } ${
         slidingState === "next"
-          ? "animate-nextSlide screen16:animate-nextSlideT screen19:animate-nextSlideT"
+          ? "animate-nextSlide screen16:animate-nextSlideT screen19:animate-nextSlideT screen18:animate-nextSlideM"
           : ""
       } ${
         slidingState === "next2"
-          ? "animate-nextSlide2 screen16:animate-nextSlide2T screen19:animate-nextSlide2T"
+          ? "animate-nextSlide2 screen16:animate-nextSlide2T screen19:animate-nextSlide2T screen18:animate-nextSlide2M"
           : ""
       }`}
       style={{ marginLeft: diffX }}
@@ -177,7 +186,7 @@ function Controller({
   isDisabled,
 }: ControllerProps) {
   return (
-    <div className="absolute w-full h-3 text-center z-[9999] bottom-[-1.875rem] screen16:bottom-[1.875rem] screen19:bottom-[1.875rem]">
+    <div className="absolute w-full h-3 text-center z-[9999] bottom-[-1.875rem] screen16:bottom-[1.875rem] screen19:bottom-[1.875rem] screen18:bottom-[1.875rem]">
       <button
         className={`inline-block relative w-[0.5625rem] h-3 ${
           stopSlide
@@ -256,15 +265,15 @@ function MainPromBnr() {
     <div
       className={`${
         openBnr ? "block" : "hidden"
-      } w-full z-10 relative bg-[#f6f5ef] border-t-[0.0625rem] border-solid border-[#f6f5ef] overflow-hidden screen1:h-[41.125rem] screen16:h-[27.875rem] screen19:h-[27.875rem]  ${
+      } w-full z-10 relative bg-[#f6f5ef] border-t-[0.0625rem] border-solid border-[#f6f5ef] overflow-hidden screen1:h-[41.125rem] screen16:h-[27.875rem] screen19:h-[27.875rem] screen20:h-[27.875rem] screen21:h-[23.125rem]  ${
         animateCloseBnr
-          ? "screen1:animate-closeMainSlide screen16:animate-closeMainSlideT screen19:animate-closeMainSlideT"
-          : "screen1:animate-showMainSlide screen16:animate-showMainSlideT screen19:animate-showMainSlideT"
+          ? "screen1:animate-closeMainSlide screen16:animate-closeMainSlideT screen19:animate-closeMainSlideT screen20:animate-closeMainSlideT screen21:animate-closeMainSlideM"
+          : "screen1:animate-showMainSlide screen16:animate-showMainSlideT screen19:animate-showMainSlideT screen20:animate-showMainSlideT screen21:animate-showMainSlideM"
       }`}
     >
-      <div className="relative text-center left-1/2 screen1:w-[68.75rem] screen1:h-[34.5625rem] screen1:mt-[2.4375rem] screen1:ml-[-34.375rem] screen16:h-[26.3125rem] screen16:mt-[1.5625rem] screen16:-ml-[19.375rem] screen16:w-[38.75rem] screen19:h-[26.3125rem] screen19:mt-[1.5625rem] screen19:-ml-[19.375rem] screen19:w-[38.75rem]">
+      <div className="relative text-center left-1/2 screen1:w-[68.75rem] screen1:h-[34.5625rem] screen1:mt-[2.4375rem] screen1:ml-[-34.375rem] screen16:h-[26.3125rem] screen16:mt-[1.5625rem] screen16:-ml-[19.375rem] screen16:w-[38.75rem] screen19:h-[26.3125rem] screen19:mt-[1.5625rem] screen19:-ml-[19.375rem] screen19:w-[38.75rem] screen20:h-[26.3125rem] screen20:mt-[1.5625rem] screen20:-ml-[49%] screen20:w-[98%] screen21:h-[21.25rem] screen21:mt-[1.5625rem] screen21:-ml-[49%] screen21:w-[98%]">
         <div className="relative mt-0 mx-auto mb-[3.75rem] max-w-full">
-          <div className="w-full overflow-hidden relative h-[33.8125rem] screen1:overflow-visible screen16:h-[21.625rem] screen19:h-[21.625rem]">
+          <div className="w-full overflow-hidden relative h-[33.8125rem] screen1:overflow-visible screen16:h-[21.625rem] screen19:h-[21.625rem] screen20:h-[18.75rem] screen21:h-[17.1875rem] screen18:overflow-visible">
             <BnrSlide
               curItem={curItem}
               slidingState={slidingState}
@@ -275,14 +284,14 @@ function MainPromBnr() {
             />
           </div>
         </div>
-        <p className="absolute left-[3%] top-[14.0625rem] z-[2001]">
+        <p className="absolute left-[3%] top-[14.0625rem] z-[2001] screen20:hidden screen21:hidden">
           <button
             className={`block w-[3.1875rem] h-[3.1875rem] border-[0.125rem] border-solid border-[#222] rounded-[1.71875rem]  bg-[url('/assets/img/home/arrow_left_on.png')] bg-center bg-no-repeat  hover:bg-white transition-colors`}
             onClick={() => slide("prev")}
             disabled={slidingState !== "default"}
           ></button>
         </p>
-        <p className="absolute right-[3%] top-[14.0625rem] z-[2001]">
+        <p className="absolute right-[3%] top-[14.0625rem] z-[2001] screen20:hidden screen21:hidden">
           <button
             className={`block w-[3.1875rem] h-[3.1875rem] border-[0.125rem] border-solid border-[#222] rounded-[1.71875rem]  bg-[url('/assets/img/home/arrow_right_on.png')] bg-center bg-no-repeat  hover:bg-white transition-colors`}
             onClick={() => slide("next")}
