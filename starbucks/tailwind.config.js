@@ -35,6 +35,7 @@ module.exports = {
         screen22: { min: "641px", max: "1020px" },
         screen23: { max: "640px" },
         screen24: { min: "961px", max: "1500px" },
+        screen25: { min: "481px", max: "960px" },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
