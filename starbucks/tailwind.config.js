@@ -220,6 +220,14 @@ module.exports = {
             height: 0,
           },
         },
+        appear: {
+          from: {
+            opacity: 0,
+          },
+          to: {
+            opacity: 1,
+          },
+        },
       },
       animation: {
         show1: "show 500ms ease forwards",
@@ -247,6 +255,7 @@ module.exports = {
         closeMainSlideT: "closeMainSlideT 500ms ease forwards",
         showMainSlideM: "showMainSlideM 500ms ease forwards",
         closeMainSlideM: "closeMainSlideM 500ms ease forwards",
+        appear: "appear 2000ms ease forwards",
       },
     },
   },
