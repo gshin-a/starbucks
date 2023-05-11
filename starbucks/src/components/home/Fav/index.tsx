@@ -27,6 +27,11 @@ function Fav() {
     });
   }
 
+  // 참고자료
+  // https://www.kindacode.com/article/react-get-the-position-x-y-of-an-element/
+  // https://velog.io/@dunde/Javascript-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EC%9D%B4%EB%B2%A4%ED%8A%B8
+  // https://lookingfor.tistory.com/entry/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%99%94%EB%A9%B4-%ED%81%AC%EA%B8%B0-%EA%B5%AC%ED%95%98%EA%B8%B0
+
   // 이런식으로 함수형태로 사용해서 여러개 사용할 수 있도록!
 
   // function addScrollEvent(scrollRef,setIsVisible){
