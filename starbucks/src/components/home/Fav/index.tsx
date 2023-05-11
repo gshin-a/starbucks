@@ -26,6 +26,28 @@ function Fav() {
       }
     });
   }
+
+  // 이런식으로 함수형태로 사용해서 여러개 사용할 수 있도록!
+
+  // function addScrollEvent(scrollRef,setIsVisible){
+  //   const curElement = scrollRef.current;
+  //   if (typeof window !== "undefined") {
+  //     window.addEventListener("scroll", () => {
+  //       if (curElement) {
+  //         console.log(curElement.getBoundingClientRect().bottom);
+  //         console.log(
+  //           curElement.getBoundingClientRect().bottom <= screen.height
+  //             ? "요소완전히스크롤됨"
+  //             : "스크롤아직"
+  //         );
+  //         setIsVisible(
+  //           curElement.getBoundingClientRect().bottom <= screen.height
+  //         );
+  //       }
+  //     });
+  //   }
+  // }
+
   return (
     <div className="block relative h-[50rem] bg-[url('/assets/img/home/2023_spring2_pick_bg.jpg')] bg-fixed bg-bottom bg-no-repeat bg-[#45434c] bg-[auto_87%] screen17:bg-[url('/assets/img/home/2023_m_summer1_pick_bg_1.jpg')] screen18:bg-[center_-0.1875rem] screen17:bg-cover screen17:bg-scroll screen18:w-full screen23:bg-[center_-0.375rem] screen17:h-[232vw] screen17:p-0 screen17:w-full">
       <div className=" left-1/2 ml-[-40rem] absolute top-0 w-[80rem] bottom-0">
