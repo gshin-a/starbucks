@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-function HeaderM() {
+function HeaderM({
+  setOpenMenu,
+}: {
+  openMenu: boolean;
+  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   return (
     <div className="relative hidden screen17:block h-[4.1875rem] border-b-[0.125rem] border-solid border-[#000]">
       <div className="flex justify-between items-center fixed w-full h-[4.3125rem] left-0 z-20 bg-[#f6f5ef] border-b-[0.0625rem] border-solid border-[#e5e5e5]">
@@ -31,7 +36,10 @@ function HeaderM() {
               ></Link>
             </li>
             <li className="flex items-center justify-center w-[3.75rem] relative h-[3.75rem] mt-[0.625rem] mr-0 mb-0">
-              <button className="block absolute overflow-hidden w-[1.75rem] h-[1.625rem] bg-[url('/assets/img/headerm/btn_berger_m.png')] bg-100auto"></button>
+              <button
+                onClick={() => setOpenMenu(true)}
+                className="block absolute overflow-hidden w-[1.75rem] h-[1.625rem] bg-[url('/assets/img/headerm/btn_berger_m.png')] bg-100auto"
+              ></button>
             </li>
           </ul>
         </nav>
