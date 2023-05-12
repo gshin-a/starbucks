@@ -28,7 +28,7 @@ function ListItem({
             openSubMenu
               ? "bg-[url('/assets/img/MobGNB/mob_gnb_arrow_up_w.png')]"
               : "bg-[url('/assets/img/MobGNB/mob_gnb_arrow_down_w.png')]"
-          } bg-no-repeat bg-[length:1rem_auto] h-4 w-[1.3125rem] -mt-[0.375rem] right-10 top-1/2 screen18:right-5 screen18:w-4 screen17:bg-[length:auto]`}
+          } bg-no-repeat bg-[length:1rem_auto] h-4 w-[1.3125rem] -mt-[0.375rem] right-10 top-1/2 screen18:right-5 screen18:w-4 screen25:bg-[length:auto]`}
         ></span>
       </button>
       <ul>
@@ -38,12 +38,12 @@ function ListItem({
               key={id}
               className={`block transition-[height] duration-700 overflow-hidden ${
                 openSubMenu
-                  ? "screen18:h-[3.125rem] screen17:h-[4.75rem]"
+                  ? "screen18:h-[3.125rem] screen25:h-[4.75rem]"
                   : "h-0"
               }`}
             >
               <button
-                className={`relative screen18:w-[98%] text-left bg-[#181818] text-white border-b-[0.0625rem] border-solid border-[#222] text-[1.5rem] leading-[4.75rem] indent-[2.1875rem] screen18:text-[0.875rem] screen18:leading-[3.125rem] screen18:indent-[0.9375rem] block screen49:text-[1.125rem] screen17:w-full`}
+                className={`relative screen18:w-[98%] text-left bg-[#181818] text-white border-b-[0.0625rem] border-solid border-[#222] text-[1.5rem] leading-[4.75rem] indent-[2.1875rem] screen18:text-[0.875rem] screen18:leading-[3.125rem] screen18:indent-[0.9375rem] block screen49:text-[1.125rem] screen25:w-full`}
               >
                 {name}
                 <span
