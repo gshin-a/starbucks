@@ -61,13 +61,13 @@ function SearchBtn({ showSearch, setShowSearch }: SearchBtnProps) {
           className="absolute align-top max-w-full z-[1] screen1:right-[0.4375rem] screen1:top-[0.375rem]"
         />
       </button>
-      {showSearch && (
-        <input
-          type="text"
-          placeholder="통합검색"
-          className="block absolute top-[0.3125rem] w-[7.6875rem] bg-none border-none text-[#777] text-[0.75rem] h-[1.375rem] left-0 py-0 px-[0.625rem] screen1:bg-none screen1:border-none screen1:text-[#777] screen1:block screen1:text-[0.75rem] screen1:h-[1.375rem] screen1:left-0 screen1:py-0 screen1:px-[0.625rem] screen1:absolute screen1:top-[0.3125rem] screen1:w-[7.6875rem]"
-        />
-      )}
+      <input
+        type="text"
+        placeholder="통합검색"
+        className={`${
+          showSearch ? "opacity-100 visible" : "opacity-0 invisible"
+        } transition-[opacity] absolute top-[0.3125rem] w-[7.6875rem] bg-none border-none text-[#777] text-[0.75rem] h-[1.375rem] left-0 py-0 px-[0.625rem] screen1:bg-none screen1:border-none screen1:text-[#777] screen1:block screen1:text-[0.75rem] screen1:h-[1.375rem] screen1:left-0 screen1:py-0 screen1:px-[0.625rem] screen1:absolute screen1:top-[0.3125rem] screen1:w-[7.6875rem]`}
+      />
     </div>
   );
 }
