@@ -228,6 +228,181 @@ module.exports = {
             opacity: 1,
           },
         },
+        disappear: {
+          from: {
+            opacity: 1,
+          },
+          to: {
+            opacity: 0,
+          },
+        },
+        downtop225: {
+          from: {
+            top: 0,
+            opacity: 0,
+          },
+          to: {
+            top: "22.5rem",
+            opacity: 1,
+          },
+        },
+        uptop225: {
+          from: {
+            top: "22.5rem",
+            opacity: 1,
+          },
+          to: {
+            top: 0,
+            opacity: 0,
+          },
+        },
+        downtop24375: {
+          from: {
+            top: 0,
+            opacity: 0,
+          },
+          to: {
+            top: "24.375rem",
+            opacity: 1,
+          },
+        },
+        uptop24375: {
+          from: {
+            top: "24.375rem",
+            opacity: 1,
+          },
+          to: {
+            top: 0,
+            opacity: 0,
+          },
+        },
+        upbottom26875: {
+          from: {
+            top: "46.875rem",
+          },
+          to: {
+            top: "26.875rem",
+          },
+        },
+        downbottom26875: {
+          from: {
+            top: "26.875rem",
+          },
+          to: {
+            top: "46.875rem",
+          },
+        },
+        upbottom296875: {
+          from: {
+            top: "46.875rem",
+          },
+          to: {
+            top: "29.6875rem",
+          },
+        },
+        downbottom296875: {
+          from: {
+            top: "29.6875rem",
+          },
+          to: {
+            top: "46.875rem",
+          },
+        },
+        upbottom24375: {
+          from: {
+            top: "46.875rem",
+          },
+          to: {
+            top: "24.375rem",
+          },
+        },
+        downbottom24375: {
+          from: {
+            top: "24.375rem",
+          },
+          to: {
+            top: "46.875rem",
+          },
+        },
+        movefromright15: {
+          from: {
+            right: "-15%",
+            opacity: 0,
+          },
+          to: { right: "15%" },
+        },
+        movetoright15: {
+          from: {
+            right: "15%",
+          },
+          to: { right: "-15%", opacity: 0 },
+        },
+        movefromright1625: {
+          from: {
+            right: "-16.25rem",
+            opacity: 0,
+          },
+          to: { right: "16.25rem" },
+        },
+        movetoright1625: {
+          from: {
+            right: "16.25rem",
+          },
+          to: { right: "-16.25rem", opacity: 0 },
+        },
+        movefromright17375: {
+          from: {
+            right: "-17.375rem",
+            opacity: 0,
+          },
+          to: { right: "17.375rem" },
+        },
+        movetoright17375: {
+          from: {
+            right: "17.375rem",
+          },
+          to: { right: "-17.375rem", opacity: 0 },
+        },
+        movefromleft175: {
+          from: {
+            left: "-17.5rem",
+            opacity: 0,
+          },
+          to: {
+            left: "17.5rem",
+            opacity: 1,
+          },
+        },
+        movetoleft175: {
+          from: {
+            left: "17.5rem",
+            opacity: 1,
+          },
+          to: {
+            left: "-17.5rem",
+            opacity: 0,
+          },
+        },
+        movefromleft11375: {
+          from: {
+            left: "-11.375rem",
+            opacity: 0,
+          },
+          to: {
+            left: "11.375rem",
+            opacity: 1,
+          },
+        },
+        movetoleft11375: {
+          from: {
+            left: "11.375rem",
+            opacity: 1,
+          },
+          to: {
+            left: "-11.375rem",
+            opacity: 0,
+          },
+        },
       },
       animation: {
         show1: "show 500ms ease forwards",
@@ -255,7 +430,26 @@ module.exports = {
         closeMainSlideT: "closeMainSlideT 500ms ease forwards",
         showMainSlideM: "showMainSlideM 500ms ease forwards",
         closeMainSlideM: "closeMainSlideM 500ms ease forwards",
-        appear: "appear 2000ms ease forwards",
+        appear: "appear 1000ms ease forwards",
+        disappear: "disappear 1000ms ease forwards",
+        downtop225: "downtop225 1500ms ease forwards",
+        uptop225: "uptop225 1500ms ease forwards",
+        downtop24375: "downtop24375 1500ms ease forwards",
+        uptop24375: "uptop24375 1500ms ease forwards",
+        upbottom26875: "upbottom26875 1500ms ease forwards",
+        downbottom26875: "downbottom26875 1500ms ease forwards",
+        upbottom296875: "upbottom296875 1500ms ease forwards",
+        downbottom296875: "downbottom296875 1500ms ease forwards",
+        movefromright15: "movefromright15 1500ms ease forwards",
+        movetoright15: "movetoright15 1500ms ease forwards",
+        movefromright1625: "movefromright1625 1500ms ease forwards",
+        movetoright1625: "movetoright1625 1500ms ease forwards",
+        movefromright17375: "movefromright17375 1500ms ease forwards",
+        movetoright17375: "movetoright17375 1500ms ease forwards",
+        movefromleft175: "movefromleft175 1500ms ease forwards",
+        movetoleft175: "movetoleft175 1500ms ease forwards",
+        movefromleft11375: "movefromleft11375 1500ms ease forwards",
+        movetoleft11375: "movetoleft11375 1500ms ease forwards",
       },
     },
   },

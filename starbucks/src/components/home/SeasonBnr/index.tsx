@@ -1,11 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+
+import { addScrollEvent } from "@/utils/addScrollEvent";
 
 function SeasonBnr() {
+  const scrollRef1 = useRef<HTMLDivElement>(null);
+  const [isVisible1, setIsVisible1] = useState(false);
+
+  useEffect(() => {
+    addScrollEvent({ scrollRef: scrollRef1, setIsVisible: setIsVisible1 });
+  }, []);
+
   return (
     <div className="overflow-hidden bg-[url('/assets/img/home/2023_spring_promotion_bg.jpg')] bg-center bg-cover bg-no-repeat h-[35.8125rem] relative screen8:relative screen8:h-[31.25rem] screen8:screen7:h-[43vw] screen17:bg-[url('/assets/img/home/2023_m_summer1_promotion_bg_1.jpg')] screen17:h-[174vw]">
       <div className="relative max-w-[70.25rem] h-full my-0 mx-auto screen9:max-w-[70.25rem]">
-        <div className="absolute z-[9] w-[28%] top-1/2 left-[10.9%] translate-y-[-50%] screen8:left-[14%] screen17:z-10 screen17:top-[9.8%] screen17:left-[55.7%] screen17:w-[75.5%] screen17:-translate-x-1/2 screen17:translate-y-0">
+        <div
+          className={`absolute z-[9] w-[28%] top-1/2 left-[10.9%] translate-y-[-50%] screen8:left-[14%] screen17:z-10 screen17:top-[9.8%] screen17:left-[55.7%] screen17:w-[75.5%] screen17:-translate-x-1/2 screen17:translate-y-0`}
+        >
           <Image
             src="/assets/img/home/2023_spring_promotion_img.png"
             alt="pc"
@@ -21,7 +33,14 @@ function SeasonBnr() {
             className="hidden screen4:block w-full max-w-full align-top"
           />
         </div>
-        <div className="absolute z-[9] w-[37.63%] max-w-[21.1875rem] top-[32.8%] right-[12%] screen24:right-[15%] screen8:top-[35%] screen8:w-[30%] screen7:right-[14.7%] screen7:top-[34%] screen7:w-[32%] screen17:right-1/2 screen17:z-10 screen17:bottom-[10.4988%] screen17:top-[64.9%] screen17:w-[67%] screen17:translate-x-1/2 screen17:max-w-[26.6875rem]">
+        <div
+          ref={scrollRef1}
+          className={`absolute z-[9] w-[37.63%] max-w-[21.1875rem] top-[32.8%] right-[12%] screen24:right-[15%] screen8:top-[35%] screen8:w-[30%] screen7:right-[14.7%] screen7:top-[34%] screen7:w-[32%] screen17:right-1/2 screen17:z-10 screen17:bottom-[10.4988%] screen17:top-[64.9%] screen17:w-[67%] screen17:translate-x-1/2 screen17:max-w-[26.6875rem] ${
+            isVisible1
+              ? "screen1:animate-movefromright15"
+              : "screen1:animate-movetoright15"
+          }`}
+        >
           <Image
             src="/assets/img/home/2023_spring_promotion_txt_2.png"
             width={403}
